@@ -1,0 +1,19 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /previdencia/api
+
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:/home/wendellmod/WMod/GitHub/bdH2/previdenciadb;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
+    username: wmsdev
+    password: teste
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
