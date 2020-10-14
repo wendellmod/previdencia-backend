@@ -1,11 +1,17 @@
 package br.com.sinqia.previdenciabackend.service.impl;
 
 import br.com.sinqia.previdenciabackend.dto.CreateParticipanteDTO;
+import br.com.sinqia.previdenciabackend.dto.EnderecoDTO;
 import br.com.sinqia.previdenciabackend.dto.ParticipanteDTO;
+import br.com.sinqia.previdenciabackend.entity.Endereco;
+import br.com.sinqia.previdenciabackend.entity.Participante;
 import br.com.sinqia.previdenciabackend.repository.ParticipanteRepository;
 import br.com.sinqia.previdenciabackend.service.ParticipanteService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class ParticipanteServiceImpl implements ParticipanteService {
@@ -15,17 +21,42 @@ public class ParticipanteServiceImpl implements ParticipanteService {
 
     @Override
     public ParticipanteDTO createParticipante(CreateParticipanteDTO dto) {
-        return null;
+
+        Participante participante = dto.buildParticipante();
+        Participante savedParticipante = repository.save(participante);
+
+        return new ParticipanteDTO(savedParticipante);
     }
 
     @Override
     public ParticipanteDTO readParticipante(String cpf) {
-        return null;
+
+        Participante participante = findParticipanteById(cpf);
+
+        return new ParticipanteDTO(participante);
     }
 
     @Override
     public ParticipanteDTO updateParticipante(CreateParticipanteDTO dto, String cpf) {
-        return null;
+
+        Participante participante = findParticipanteById(cpf);
+        BeanUtils.copyProperties(dto, participante);
+        Participante upParticipante = repository.save(participante);
+
+        return new ParticipanteDTO(upParticipante);
+    }
+
+    @Override
+    public EnderecoDTO readEndereco(String cpf) {
+
+        Endereco endereco = findParticipanteById(cpf).getEndereco();
+
+        return new EnderecoDTO(endereco);
+    }
+
+    private Participante findParticipanteById(String id){
+        return repository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
 }

@@ -1,6 +1,7 @@
 package br.com.sinqia.previdenciabackend.controller;
 
 import br.com.sinqia.previdenciabackend.dto.CreateParticipanteDTO;
+import br.com.sinqia.previdenciabackend.dto.EnderecoDTO;
 import br.com.sinqia.previdenciabackend.dto.ParticipanteDTO;
 import br.com.sinqia.previdenciabackend.service.ParticipanteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,11 @@ public class ParticipanteController {
     @PutMapping("{cpf}")
     public ParticipanteDTO updateParticipante(@RequestBody CreateParticipanteDTO dto, @PathVariable String cpf) {
         return service.updateParticipante(dto, cpf);
+    }
+
+    @GetMapping("{cpf}/enderecos")
+    public EnderecoDTO readEndereco(@PathVariable String cpf) {
+        return service.readEndereco(cpf);
     }
 
 }

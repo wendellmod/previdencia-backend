@@ -1,6 +1,7 @@
 package br.com.sinqia.previdenciabackend.service;
 
 import br.com.sinqia.previdenciabackend.dto.CreateParticipanteDTO;
+import br.com.sinqia.previdenciabackend.dto.EnderecoDTO;
 import br.com.sinqia.previdenciabackend.dto.ParticipanteDTO;
 
 public interface ParticipanteService {
@@ -9,4 +10,5 @@ public interface ParticipanteService {
     ParticipanteDTO readParticipante(String cpf);
     ParticipanteDTO updateParticipante(CreateParticipanteDTO dto, String cpf);
 
+    EnderecoDTO readEndereco(String cpf);
 }
