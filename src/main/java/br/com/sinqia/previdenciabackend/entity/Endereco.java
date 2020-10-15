@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -37,7 +38,7 @@ public class Endereco {
     private String complemento;
 
     // Relacionamentos
-    @OneToOne(mappedBy = "endereco")
-    private Participante participante;
+    @OneToMany(mappedBy = "endereco")
+    private List<Participante> participante;
 
 }

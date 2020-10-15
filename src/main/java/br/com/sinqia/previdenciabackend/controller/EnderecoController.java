@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("enderecos")
+@RequestMapping("participantes/{cpf}/enderecos")
 public class EnderecoController {
 
     @Autowired
@@ -18,15 +18,9 @@ public class EnderecoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public EnderecoDTO createEndereco(@RequestBody @Valid CreateEnderecoDTO dto,
-                                      @RequestParam String cpf) {
-        return service.createEndereco(dto, cpf);
-    }
-
-    @PutMapping("participantes/{cpf}/enderecos")
-    public EnderecoDTO updateEnderecoParticipante(@RequestBody CreateEnderecoDTO dto,
-                                                  @PathVariable String cpf) {
-        return service.updateEnderecoParticipante(dto, cpf);
+    public EnderecoDTO createEndereco(@PathVariable String cpf,
+                                      @RequestBody @Valid CreateEnderecoDTO dto) {
+        return service.createEndereco(cpf, dto);
     }
 
 }

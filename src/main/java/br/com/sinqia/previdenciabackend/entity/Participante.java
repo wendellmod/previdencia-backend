@@ -36,8 +36,8 @@ public class Participante {
     private String senha;
 
     // Relacionamentos
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "endereco_id", referencedColumnName = "cep")
-    private Endereco endereco;
+    @ManyToOne
+    @JoinColumn(name = "cep", referencedColumnName = "cep")
+    private Endereco endereco;;
 
 }

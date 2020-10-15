@@ -33,9 +33,4 @@ public class ParticipanteController {
         return service.updateParticipante(dto, cpf);
     }
 
-    @GetMapping("{cpf}/enderecos")
-    public EnderecoDTO readEndereco(@PathVariable String cpf) {
-        return service.readEndereco(cpf);
-    }
-
 }

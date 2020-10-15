@@ -10,5 +10,4 @@ public interface ParticipanteService {
     ParticipanteDTO readParticipante(String cpf);
     ParticipanteDTO updateParticipante(CreateParticipanteDTO dto, String cpf);
 
-    EnderecoDTO readEndereco(String cpf);
 }

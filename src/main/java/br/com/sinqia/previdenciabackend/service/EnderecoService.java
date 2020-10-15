@@ -5,7 +5,6 @@ import br.com.sinqia.previdenciabackend.dto.EnderecoDTO;
 
 public interface EnderecoService {
 
-    EnderecoDTO createEndereco(CreateEnderecoDTO dto, String cpf);
+    EnderecoDTO createEndereco(String cpf, CreateEnderecoDTO dto);
 
-    EnderecoDTO updateEnderecoParticipante(CreateEnderecoDTO dto, String cpf);
 }

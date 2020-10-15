@@ -46,14 +46,6 @@ public class ParticipanteServiceImpl implements ParticipanteService {
         return new ParticipanteDTO(upParticipante);
     }
 
-    @Override
-    public EnderecoDTO readEndereco(String cpf) {
-
-        Endereco endereco = findParticipanteById(cpf).getEndereco();
-
-        return new EnderecoDTO(endereco);
-    }
-
     private Participante findParticipanteById(String id){
         return repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

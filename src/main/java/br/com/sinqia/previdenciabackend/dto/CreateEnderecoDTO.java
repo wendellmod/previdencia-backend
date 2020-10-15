@@ -33,7 +33,7 @@ public class CreateEnderecoDTO {
     private String uf;
 
     @NotBlank
-    @NotNull(message = "Informe o número")
+    @NotNull(message = "Informe o número de onde você reside")
     private String numero;
 
     private String complemento;

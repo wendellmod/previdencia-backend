@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter @Setter
 @NoArgsConstructor
 public class EnderecoDTO {
@@ -24,6 +26,6 @@ public class EnderecoDTO {
         this.localidade = endereco.getLocalidade();
         this.uf = endereco.getUf();
         this.numero = endereco.getNumero();
-        this.complemento = endereco.getComplemento();
+        this.complemento = getComplemento();
     }
 }

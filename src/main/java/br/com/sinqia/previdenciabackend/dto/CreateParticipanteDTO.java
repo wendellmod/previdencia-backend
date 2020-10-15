@@ -21,7 +21,6 @@ public class CreateParticipanteDTO {
     @NotNull(message = "Informe o seu CPF. Apenas números")
     private String cpf;
 
-    @NotBlank
     @NotNull(message = "Informe sua data de nascimento")
     private LocalDate dataNascimento;
 
