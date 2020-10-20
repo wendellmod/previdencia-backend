@@ -41,7 +41,7 @@ public class CreateEnderecoDTO {
     public Endereco buildEndereco() {
 
         Endereco endereco = new Endereco();
-        endereco.setCep(cep);
+        endereco.setCep(cep.replace("-", ""));
         endereco.setLogradouro(logradouro);
         endereco.setBairro(bairro);
         endereco.setLocalidade(localidade);
